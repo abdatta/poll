@@ -1,0 +1,40 @@
+[
+	{
+		"post": "Senator BT/BS, Y18",
+		"candidates": [
+			{"name":"Anirudh Kumar", "photo": "/images/nota.jpg" },
+			{"name":"Ankur Banga", "photo": "/images/nota.jpg" },
+			{"name":"Anubhav Kumar", "photo": "/images/nota.jpg" },
+			{"name":"Aryan Sinha", "photo": "/images/nota.jpg" },
+			{"name":"Ashutosh Bajpai", "photo": "/images/nota.jpg" },
+			{"name":"Chinmay Goyal", "photo": "/images/nota.jpg" },
+			{"name":"Deepankur Kansal", "photo": "/images/nota.jpg" },
+			{"name":"Devesh Mahaur", "photo": "/images/nota.jpg" },
+			{"name":"Kisha Singh", "photo": "/images/nota.jpg" },
+			{"name":"Maneesh P M", "photo": "/images/nota.jpg" },
+			{"name":"Piyush Singh", "photo": "/images/nota.jpg" },
+			{"name":"Prakhar Dhumas", "photo": "/images/nota.jpg" },
+			{"name":"Prince Pratap Singh", "photo": "/images/nota.jpg" },
+			{"name":"Priya Tholia", "photo": "/images/nota.jpg" },
+			{"name":"Ramandeep Kaur", "photo": "/images/nota.jpg" },
+			{"name":"Rythm Agarwal", "photo": "/images/nota.jpg" },
+			{"name":"Shivam Rajoriya", "photo": "/images/nota.jpg" },
+			{"name":"Shivani Jha", "photo": "/images/nota.jpg" },
+			{"name":"Tanmay Gupta", "photo": "/images/nota.jpg" },
+			{"name":"Vartika Gupta", "photo": "/images/nota.jpg"}
+		]
+	},
+	{
+		"post": "Senator BT/BS, Y15",
+		"candidates": [
+			{"name":"Maharshi Kumar", "photo": "/images/nota.jpg" },
+			{"name":"Sirsendu Sarkar", "photo": "/images/nota.jpg" }
+		]
+	},
+	{
+		"post": "General Secretary, Media & Culture",
+		"candidates": [
+			{"name":"Anshumali Prakash Mishra", "photo": "/images/nota.jpg" }
+		]
+	}
+]

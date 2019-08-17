@@ -1,0 +1,20 @@
+<br><br><br><br><br><br>
+<div style="margin-left: 22px;">
+	<h1>Login</h1>
+	<form method="POST" action="">
+	    <div class="mdl-textfield mdl-js-textfield <%= error?'is-invalid':'' %> mdl-textfield--floating-label">
+	        <input id="password" type="password" name="password" class="mdl-textfield__input"/>
+	        <label for="password" class="mdl-textfield__label">Password:</label>
+	        <% if(error){ %>        
+	            <span class="mdl-textfield__error"><%=error%></span>
+	        <% } %>
+	    </div>
+	    <br><button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored">Login</button>
+	</form>
+	<br><br>
+	<span class="mdl-chip mdl-chip--contact">
+		<span class="mdl-chip__contact mdl-color--teal mdl-color-text--white"><%= count %></span>
+	    <span class="mdl-chip__text">Votes Count</span>
+	</span>
+	<br>
+</div>

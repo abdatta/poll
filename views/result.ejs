@@ -1,0 +1,31 @@
+<h1 style="text-align: center;margin-top: 10px">HEC Election Results</h1>
+<div style="display: flex; justify-content: space-around;">
+	<h4 style="margin: 0;">No. of Votes Casted: <%= count %></h4>
+	<h4 style="margin: 0;">Voter Turnout: <%= (count*100/360).toFixed(1) %>%</h4>
+</div>
+<br>
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; align-items: center;">
+<% for (var key in data) { %>
+<div style="display: flex; flex-flow: column; align-items: center;">
+<h4 style="margin: 0"><u><%= key %></u></h4>
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="font-size: 20px; margin: 15px; margin-bottom: 30px;">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric"
+      	  style="font-size: 18px;background: rgb(63,81,181);color: rgb(255,255,255);"
+      	  >Name</th>
+      <th style="font-size: 18px;background: rgb(63,81,181);color: rgb(255,255,255);">Votes in Favour</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% for (var can in data[key]) {%>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric" style="<%= (elected[key] == can)?'background: #3cba54;color: rgb(255,255,255);':''; %>"><%= can %></td>
+      <td style="<%= (elected[key] == can)?'background: #3cba54;color: rgb(255,255,255);':''; %>"><%= data[key][can] %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+</div>
+<% } %>
+</div>

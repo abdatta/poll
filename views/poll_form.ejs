@@ -1,0 +1,125 @@
+<br><br><br><br>
+<div id="karliasubmit" style="display: none;"><br><br><br><br><h2 style="text-align: center;">Thank You for Voting!</h2></div>
+<form id="vote" method="POST" action="/poll" style="display: initial;">
+	<% data.forEach(function (item, index) {%>
+    <div id="poll<%= index %>"
+         style="<%= index>0?'display: none;':'' %>">
+         <h2 style="text-align: center;"><%= item.post %></h2>
+        <div id="candidates<%= index %>" style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+        <% item.candidates.forEach(function (can, i) { %>
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp"
+             style="margin: 20px;">
+          <div class="mdl-card__title"
+               style="background: url('<%= can.photo %>') center / cover;">
+          </div>
+          <div class="mdl-card__actions mdl-card--border"
+               style="padding: 10px 15px;">
+            <button type="button" style="width: 100%"
+                    class="mdl-button mdl-js-button mdl-js-ripple-effect"
+                    onclick="selected('<%= btoa(item.post) %>','<%=i%>');">
+                <label id="<%= btoa(item.post)+'-'+i %>"
+                       class="demo-list-radio mdl-radio mdl-js-radio"
+                       style="width: 100%;cursor: pointer;">
+                  <input id="post<%= index %>"
+                         type="radio"
+                         class="mdl-radio__button"
+                         name="<%= btoa(item.post) %>"
+                         value="<%= i %>"> <%= can.name %>
+                </label>
+            </button>
+          </div>
+        </div>
+        <% }); %>
+        </div>
+        <br><br><br>
+        <div style="display: flex; justify-content: center;">
+            <% if(index > 0) { %>
+            <button type="button"
+                    class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored" 
+                    style="margin: 0 30px;" onclick="back()">Back</button>
+            <% } %>
+            <% if(index < (data.length - 1)) { %>
+            <button type="button"
+                    class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored"
+                    style="margin: 0 30px;" onclick="next()">Next</button>
+            <% } %>
+            <% if(index == (data.length - 1)) { %>
+            <button id="submitbtn" type="button"
+                    class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--accent"
+                    style="margin: 0 30px;" onclick="submitvote()">Submit</button>
+            <% } %>
+        </div>
+
+	<!--div id="poll<%= index %>" class="form-group" style="text-align: center; <%= index>0?'display: none;':'' %>">
+    	<h2><u><%= item.post %></u></h2>
+        <div class="checkbox" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        	<% item.candidates.forEach(function (can, i) { %>
+            <h3>
+                <label>
+                	<% if(can.photo) { %>
+                	<img src="<%= can.photo %>">
+                	<% } %>
+                    <br>
+                    <input type="radio" class="post<%= index %>" name="<%= item.post %>" value="<%= i %>"> <%= can.name %>
+                </label>
+            </h3>
+            <% }); %>
+        </div><br>
+        
+    </div-->
+    </div>
+    <% }); %>
+</form>
+<br>
+<audio id="myAudio">
+  <source src="/beep/beep-04.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+var cur = 0;
+function selected(name, value) {
+    $("input[name='"+name+"'][value='"+value+"']").prop('checked', true);
+    $("[id^="+$.escapeSelector(name)+"]").removeClass("is-checked");
+    $("#"+$.escapeSelector(name)+"-"+value).addClass("is-checked");
+}
+function next()
+{
+	if($('input:radio[id=post'+cur+']').is(':checked'))
+	{
+ 		$("#poll"+cur).css('display','none');;
+		cur++;
+		$("#poll"+cur).css('display','initial');;
+	}
+	
+}
+function back()
+{
+	$("#poll"+cur).css('display','none');
+	cur--;
+	$("#poll"+cur).css('display','initial');
+}
+function submitvote()
+{
+	if($('input:radio[id=post'+cur+']').is(':checked'))
+	{
+        $("#vote").css("display", "none");
+        $("#karliasubmit").css("display", "initial");
+        $("#submitbtn").prop("disabled", true);
+        document.getElementById("myAudio").play();
+        setTimeout(function() {
+            $("#vote").submit();
+        }, 750);
+	}
+}
+
+<% data.forEach(function (item, index) {%>
+$(function () {
+    var parent = $("#candidates<%= index %>");
+    var divs = parent.children();
+    while (divs.length) {
+        parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+    }
+});
+<% }); %>
+
+</script>
